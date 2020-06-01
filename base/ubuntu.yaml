@@ -1,0 +1,51 @@
+---
+- hosts: dev_platform
+  vars:
+    dev_user: ubuntu
+    tomcat_version: 7.0.104
+  become: yes
+  tasks:
+    - name: Update apt package list
+      apt:
+        update_cache: yes
+    - name: Upgrade apt packages
+      apt:
+        upgrade: yes
+    - name: Install software-common
+      apt:
+        pkg:
+          - software-properties-common
+    - name: Add ppa:x2go/stable repo
+      apt_repository:
+        repo: 'ppa:x2go/stable'
+        update_cache: yes
+    - name: Install default packages
+      apt:
+        pkg:
+          - curl
+          - wget
+          - git
+          - python-pip
+          - build-essential
+          - snapd
+          - x2goserver
+          - x2goserver-xsession
+          - x2goclient
+          - ant
+          - mysql-workbench
+          - mysql-client
+          - emacs
+          - xrdp
+          - libreoffice
+          - chromium-browser
+          - shutter
+          - meld
+          - git
+          - htop
+          - pavucontrol
+          - sass
+          - openjdk-8-jdk
+    - name: Apt handle unattended-upgrades
+      command: apt-get install -y unattended-upgrades
+    - name: Handle dpkg reconfigure unattended-upgrades
+      command: dpkg-reconfigure -plow unattended-upgrades

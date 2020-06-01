@@ -1,0 +1,7 @@
+---
+- hosts: sly_aws
+  vars:
+    tomcat_version: 7.0.104
+  tasks:
+    - include_tasks: ../base/ubuntu.yaml
+    - name: Install Tomcat WebServer
