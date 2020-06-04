@@ -1,0 +1,13 @@
+- name: Install default packages
+  apt:
+    pkg:
+      - git
+      - snapd
+      - vim
+    state: present
+- name: Install emacs latest from snap
+  command: "sudo snap install emacs --classic"
+- name: Pull in doom emacs
+  command: "git clone --depth 1 https://github.com/hlissner/doom-emacs /home/{{user}}/.emacs.d"
+- name: Install doom-emacs
+  command: "~/.emacs.d/bin/doom install"

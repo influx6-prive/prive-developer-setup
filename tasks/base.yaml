@@ -1,0 +1,88 @@
+- name: Update apt package list
+  apt:
+    update_cache: yes
+- name: Upgrade apt packages
+  apt:
+    upgrade: yes
+- name: Install software-common
+  apt:
+    pkg:
+      - software-properties-common
+      -  apt-transport-https
+      - wget
+      - curl
+      - gnupg-agent
+      - ca-certificates
+- name: Add ppa:x2go/stable repo
+  apt_repository:
+    repo: 'ppa:x2go/stable'
+    update_cache: yes
+- name: Install default packages
+  apt:
+    pkg:
+      - git
+      - python-pip
+      - build-essential
+      - snapd
+      - x2goserver
+      - x2goserver-xsession
+      - x2goclient
+      - ant
+      - mysql-workbench
+      - mysql-client
+      - emacs
+      - xrdp
+      - libreoffice
+      - chromium-browser
+      - shutter
+      - meld
+      - git
+      - htop
+      - pavucontrol
+      - sass
+      - openjdk-8-jdk
+    state: present
+- name: Apt handle unattended-upgrades
+  command: apt-get install -y unattended-upgrades
+- name: Remove default docker install from ubuntu repo
+  apt:
+    purge: true
+    state: absent
+    pkg:
+      - docker
+      - docker-engine
+      - docker.io
+      - containerd
+      - runc
+- name: Install docker gnupkg key
+  shell: "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -"
+  register: docker_gpg
+- name: Get lsb_release value for system
+  shell: lsb_release -cs
+  register: lsb_release
+- name: Add docker apt repository
+  apt_repository:
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{lsb_release.stdout}} stable"
+    update_cache: yes
+    state: present
+- name: Install neovim, vim and emacs
+  apt:
+    pkg:
+      - vim
+      - neovim
+      - emacs
+- name: Install docker and docker-compose
+  apt:
+    pkg:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+- name: Install microk8s with snap
+  snap:
+    classic: yes
+    state: present
+    name:
+      - microk8s
+      - multipass
+- name: Install nix for re-producable packages
+  command: "curl -L https://nixos.org/nix/install | sh"
