@@ -1,0 +1,6 @@
+---
+- hosts: master
+  vars:
+  tasks:
+    - name: Echo hello
+      command: echo "hello"

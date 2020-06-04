@@ -2,9 +2,18 @@
 ### YAML inventory file
 all:
   hosts:
-    master.dev:
-      remote_ip: 10.235.108.229
-    slave1.dev:
-      remote_ip: 10.235.108.222
-    slave2.dev:
-      remote_ip: 10.235.108.129
+  children:
+    master:
+      hosts:
+        local.dev:
+          remote_ip: 127.0.0.1
+          connection: local
+          ansible_connection: local
+    slaves:
+        hosts:
+          master.dev:
+            remote_ip: 10.235.108.229
+          slave1.dev:
+            remote_ip: 10.235.108.222
+          slave2.dev:
+            remote_ip: 10.235.108.129

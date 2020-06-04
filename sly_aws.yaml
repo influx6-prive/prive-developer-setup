@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: slaves
   vars:
     tomcat_version: 7.0.104
   tasks:
