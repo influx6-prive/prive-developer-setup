@@ -47,6 +47,7 @@
           - pavucontrol
           - sass
           - openjdk-8-jdk
+        status: present
     - name: Apt handle unattended-upgrades
       command: apt-get install -y unattended-upgrades
     - name: Handle dpkg reconfigure unattended-upgrades
