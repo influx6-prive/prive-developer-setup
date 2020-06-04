@@ -1,8 +1,12 @@
+---
+### YAML inventory file
 all:
   hosts:
     master.dev:
       remote_ip: 10.235.108.229
-    slave1.dev:
-      remote_ip: 10.235.108.222
-    slave2.dev:
-      remote_ip: 10.235.108.129
+#
+#    - host: slave1.dev
+#      remote_ip: 10.235.108.222
+#
+#    - host: slave2.dev
+#      remote_ip: 10.235.108.129
