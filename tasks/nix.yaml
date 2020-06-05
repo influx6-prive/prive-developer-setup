@@ -1,0 +1,4 @@
+- name: Install nix for re-producable packages
+  command: "curl -L https://nixos.org/nix/install | sh"
+- name: Source nix files to be loaded into env
+  command: ". ~/.nix-profile/etc/profile.d/nix.sh"

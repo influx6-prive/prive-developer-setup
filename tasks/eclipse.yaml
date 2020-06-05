@@ -1,0 +1,10 @@
+- name: Install necessary packages
+  apt:
+    pkg:
+      - snapd
+    state: present
+- name: Download latest eclipse from Eclipse servrs
+  snap:
+    state: present
+    classic: yes
+    name: emacs

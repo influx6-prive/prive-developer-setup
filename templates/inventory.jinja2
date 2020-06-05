@@ -1,0 +1,8 @@
+---
+### YAML inventory file for vms
+all:
+  hosts:
+{% for vm in vm_instances|from_json %}
+    {{ vm.key }}:
+      ansible_host: {{ vm.value.ipv4[0] }}
+{% endfor %}

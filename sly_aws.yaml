@@ -1,20 +1,23 @@
 ---
-- hosts: slaves
+- hosts: all
   vars:
     tomcat_version: 7.0.104
   tasks:
     - import_tasks: tasks/base.yaml
       vars:
         user: ubuntu
+    - import_tasks: tasks/docker.yaml
+      vars:
+        user: ubuntu
+    - import_tasks: tasks/multipass_microk8s.yaml
+      vars:
+        user: ubuntu
+    - import_tasks: tasks/nix.yaml
+      vars:
+        user: ubuntu
     - import_tasks: tasks/emacs.yaml
       vars:
         user: ubuntu
-    - name: Install Tomcat WebServer
-      command:
-        shell: "{{ item }}"
-        chdir: /usr/local/bin
-        loop:
-          - "wget http://www.trieuvan.com/apache/tomcat/tomcat-7/{{tomcat_version}}/bin/apache-tomcat-7.0.90.tar.gz"
-          - "tar xvzf apache-tomcat-7.0.90.tar.gz"
-          - 'echo "PATH=/usr/local/bin/apache-tomcat-7.0.90/bin:$PATH" >> ~/.bashrc'
-          - 'echo "PATH=/usr/local/bin/apache-tomcat-7.0.90/bin:$PATH" >> ~/.profile'
+    - import_tasks: tasks/tomcat.yaml
+      vars:
+        user: ubuntu
