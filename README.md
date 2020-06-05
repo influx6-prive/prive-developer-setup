@@ -53,7 +53,8 @@ make micro inventory=inventory/localhost.yaml user=darkvoid
 
 Set the `user` argument to the username for your account on your system
 
-*You will see a directory called `ThingsYouNeed` in the user's home directory which contains different files you will need*
+You will see a directory called `ThingsYouNeed` in the user's home directory which contains different files you will need
+during setup (e.g like `eclipse.ini` file to use for eclipse)
 
 
 ## VMs
