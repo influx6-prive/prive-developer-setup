@@ -19,3 +19,6 @@ sly:
 
 micro:
 	ansible-playbook --extra-vars "user=${user}" --verbose -i ${inventory} -u=${user} ./prive_micro.yaml
+
+k8s:
+	ansible-playbook --extra-vars "user=${user}" --verbose -i ${inventory} -u=${user} ./microk8s.yaml

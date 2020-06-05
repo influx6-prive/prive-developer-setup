@@ -1,4 +1,4 @@
-# PriveBackend Ansible
+# Ansible::PriveBackend
 This project provides ansible setup scripts which can be used to provision a
 VM or host system ready for development. The help you go halfway to reduce setup time,
 allowing you to concentrate more on setting up eclipse and associated artifacts.
