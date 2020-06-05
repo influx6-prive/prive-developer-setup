@@ -45,3 +45,10 @@
     state: present
 - name: Apt handle unattended-upgrades
   command: apt-get install -y unattended-upgrades
+- name: Add tomcat and docker group
+  command: "sudo groupadd {{item}}"
+  loop:
+    - tomcat
+    - docker
+- name: Add user into sudo group
+  command: "sudo usermod -G -a sudo {{user}}"

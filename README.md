@@ -114,6 +114,9 @@ make micro inventory=./multipass_vm_inventory.yaml user=darkvoid
 
 Once done your vms should have all necessary software packages installed and ready for your use.
 
+With this done, move on to [Setting up Eclipse](https://sites.google.com/privetechnologies.com/tech/tech/devops/virtualization/setup-of-developer-box?pli=1&authuser=1#h.p_6hQiR-j74Wy-)
+and [Configuring Eclipse](https://sites.google.com/a/wismore.com/privemanagers-developer-wiki/development/build-environment/eclipse).
+
 ## Others
 The other playbooks exists within the repository for specific needs which does not apply to all, 
 feel free to use if desired:

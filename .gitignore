@@ -279,3 +279,5 @@ cython_debug/
 ### Ansible template
 *.retry
 
+### Skip generated inventory
+multipass_vm_inventory.yaml
