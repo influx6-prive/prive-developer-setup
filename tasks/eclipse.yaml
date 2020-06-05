@@ -7,7 +7,7 @@
   snap:
     state: present
     classic: yes
-    name: emacs
+    name: eclipse
 - name: Create directory for user config
   command: "mkdir -p /home/{{user}}/ThingsYouNeed/"
 - name: Generate new inventory file for multipass_instances

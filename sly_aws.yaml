@@ -10,3 +10,4 @@
     - import_tasks: tasks/docker.yaml
     - import_tasks: tasks/nix.yaml
     - import_tasks: tasks/tomcat.yaml
+    - import_tasks: tasks/eclipse.yaml
