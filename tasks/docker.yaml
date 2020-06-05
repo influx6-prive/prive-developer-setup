@@ -25,3 +25,6 @@
       - docker-ce
       - docker-ce-cli
       - containerd.io
+- name: Add user into sudo group
+  command: "usermod -aG docker {{user}}"
+
