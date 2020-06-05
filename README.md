@@ -118,7 +118,7 @@ Once done your vms should have all necessary software packages installed and rea
 The other playbooks exists within the repository for specific needs which does not apply to all, 
 feel free to use if desired:
 
-### Doom Emacs
+#### Doom Emacs
 
 For those who like to use emacs, attached is a playbook to set up [Doom Emacs](https://github.com/hlissner/doom-emacs)
 
@@ -128,9 +128,9 @@ make custom user=darkvoid inventory=./inventories/localhost.yaml play=./doom_ema
 
 *Feel free to change the `inventory` to one for vms if you so wish.*
 
-### Local Kubernetes cluster with Microk8s
+#### Local Kubernetes cluster with Microk8s
 
 If you prefer using kubernetes locally for development as well, you have use below playbook 
 setup [Microk8s](https://microk8s.io/) with the master and slave vms for local development.
 
-You are required to first setup these 3 vms described in the [VMs](##vms) section.
+You are required to first setup these 3 vms described in the [VMs](#vms) section.
