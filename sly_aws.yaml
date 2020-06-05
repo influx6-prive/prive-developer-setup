@@ -1,23 +1,10 @@
 ---
 - hosts: all
   vars:
+    user: ubuntu
     tomcat_version: 7.0.104
   tasks:
     - import_tasks: tasks/base.yaml
-      vars:
-        user: ubuntu
     - import_tasks: tasks/docker.yaml
-      vars:
-        user: ubuntu
-    - import_tasks: tasks/multipass_microk8s.yaml
-      vars:
-        user: ubuntu
     - import_tasks: tasks/nix.yaml
-      vars:
-        user: ubuntu
-    - import_tasks: tasks/emacs.yaml
-      vars:
-        user: ubuntu
     - import_tasks: tasks/tomcat.yaml
-      vars:
-        user: ubuntu

@@ -20,9 +20,18 @@ are in [inventories](./inventories). Before using the [VM Inventory](./inventori
 appropriately for the target hosts you wish to use, more so, these hosts should have your ssh pub key within their
 [authorized_keys](https://www.ssh.com/ssh/authorized_keys/) as we will be using ssh keys instead as they are more secure.
   
+  
+## Verification
+If you wish to verify ansible is working properly, just run the hello playbook:
+
+```bash
+make hello
+```
+
+This will run a simple hello playbook on your system (aka localhost).
 
 ## Local setup
-To set up your local system instead of a vm for working on the [SlyAWS](https://github.com/JSchillinger/SlyAWS) project, simply run the following in the root directory:
+To set up your local system instead of a vm, simply run the following in the root directory:
 
 Elevate your user to be able to use `sudo` without password:
 
@@ -30,13 +39,19 @@ Elevate your user to be able to use `sudo` without password:
 sudo su $USER
 ```
 
-Then run:
+- Run below command to set up your system in readiness for the [SlyAWS](https://github.com/JSchillinger/SlyAWS) project:
 
 ```bash
-make sly inventory=localhost user=darkvoid
+make sly inventory=inventory/localhost.yaml user=darkvoid
 ```
 
-## VM setup
+- Run below command to set up your system in readiness for the [PriveMicro](https://github.com/JSchillinger/PriveMicro) project:
+
+```bash
+make micro inventory=inventory/localhost.yaml user=darkvoid
+```
+
+## VMs
 We will be using [Multipass](https://multipass.run/) to setup VMs for use in development, as it makes it 
 really easy to lunch them quickly. You can set up both multipass and the 3 VMs using these commands:
 
@@ -85,10 +100,37 @@ multipass shell master
 Once the keys have being copied properly, then you can execute either the SlyAWS or PriveMicro 
 ansible playbooks to set up all the VMs appropriately, like below:
 
-- For SlyAWS
+- Run below command to set up your system in readiness for the [SlyAWS](https://github.com/JSchillinger/SlyAWS) project:
 
 ```bash
-make sly inventory=./multipass_vm_inventory.yaml user=ubuntu
+make sly inventory=./multipass_vm_inventory.yaml user=darkvoid
+```
+
+- Run below command to set up your system in readiness for the [PriveMicro](https://github.com/JSchillinger/PriveMicro) project:
+
+```bash
+make micro inventory=./multipass_vm_inventory.yaml user=darkvoid
 ```
 
 Once done your vms should have all necessary software packages installed and ready for your use.
+
+## Others
+The other playbooks exists within the repository for specific needs which does not apply to all, 
+feel free to use if desired:
+
+### Doom Emacs
+
+For those who like to use emacs, attached is a playbook to set up [Doom Emacs](https://github.com/hlissner/doom-emacs)
+
+```bash
+make custom user=darkvoid inventory=./inventories/localhost.yaml play=./doom_emacs.yaml
+```
+
+*Feel free to change the `inventory` to one for vms if you so wish.*
+
+### Local Kubernetes cluster with Microk8s
+
+If you prefer using kubernetes locally for development as well, you have use below playbook 
+setup [Microk8s](https://microk8s.io/) with the master and slave vms for local development.
+
+You are required to first setup these 3 vms described in the [VMs](##vms) section.

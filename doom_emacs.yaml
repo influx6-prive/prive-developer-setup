@@ -3,4 +3,4 @@
   vars:
     tomcat_version: 7.0.104
   tasks:
-    - include_tasks: ../base/base.yaml
+    - import_tasks: tasks/emacs.yaml

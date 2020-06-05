@@ -3,4 +3,4 @@
   vars:
   tasks:
     - name: Say Hello
-      command: echo 'hello'
+      command: echo "hello {{user}}"

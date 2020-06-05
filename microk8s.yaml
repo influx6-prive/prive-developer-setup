@@ -1,0 +1,8 @@
+---
+- hosts: all
+  vars:
+  tasks:
+    - import_tasks: tasks/multipass_microk8s.yaml
+    - name: Setup master vm microk8s as master node
+      command: /snap/bin/microk8s add-node
+      register: master_node
