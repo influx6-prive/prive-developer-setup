@@ -22,3 +22,4 @@ micro:
 
 k8s:
 	ansible-playbook --extra-vars "user=${user}" --verbose -i ${inventory} -u=${user} ./microk8s.yaml
+

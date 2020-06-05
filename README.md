@@ -148,3 +148,20 @@ If you prefer using kubernetes locally for development as well, you have use bel
 setup [Microk8s](https://microk8s.io/) with the master and slave vms for local development.
 
 You are required to first setup these 3 vms described in the [VMs](#vms) section.
+
+Then install kubectl into your localhost:
+
+```bash
+make custom user=darkvoid inventory=./inventories/localhost.yaml play=./kubectl.yaml
+```
+
+After which we setup K8S with [Microk8s](https://microk8s.io/) using:
+
+```bash
+make k8s user=ubuntu inventory=./multipass_vm_inventory.yaml
+```
+
+Once done, the necessary `kubeconfig` needed to interact with the cluster
+will be in `./artifacts/master/kubeconfig` directory, which should be copied to `$HOME/.kube/config`.
+
+With that, you are ready to interact with your cluster
