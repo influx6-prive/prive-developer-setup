@@ -51,7 +51,10 @@ make sly inventory=inventory/localhost.yaml user=darkvoid
 make micro inventory=inventory/localhost.yaml user=darkvoid
 ```
 
+Set the `user` argument to the username for your account on your system
+
 *You will see a directory called `ThingsYouNeed` in the user's home directory which contains different files you will need*
+
 
 ## VMs
 We will be using [Multipass](https://multipass.run/) to setup VMs for use in development, as it makes it 
@@ -97,6 +100,8 @@ You can use multipass to ssh into the master (and slaves) like so:
 multipass shell master
 ```
 
+Which then allows you to add the needed ssh keys as needed.
+
 *Hint: To add your keys into the host, just copy contents in your ssh key pub file (e.g `~/.ssh/id_rsa.pub`) into the `authorized_keys` on a new line.*
 
 Once the keys have being copied properly, then you can execute either the SlyAWS or PriveMicro 
@@ -105,13 +110,13 @@ ansible playbooks to set up all the VMs appropriately, like below:
 - Run below command to set up your system in readiness for the [SlyAWS](https://github.com/JSchillinger/SlyAWS) project:
 
 ```bash
-make sly inventory=./multipass_vm_inventory.yaml user=darkvoid
+make sly inventory=./multipass_vm_inventory.yaml user=ubuntu
 ```
 
 - Run below command to set up your system in readiness for the [PriveMicro](https://github.com/JSchillinger/PriveMicro) project:
 
 ```bash
-make micro inventory=./multipass_vm_inventory.yaml user=darkvoid
+make micro inventory=./multipass_vm_inventory.yaml user=ubuntu
 ```
 
 Once done your vms should have all necessary software packages installed and ready for your use.
