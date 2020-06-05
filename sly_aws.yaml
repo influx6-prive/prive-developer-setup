@@ -1,5 +1,6 @@
 ---
 - hosts: all
+  become: yes
   vars:
     user: ubuntu
     tomcat_version: 7.0.104
