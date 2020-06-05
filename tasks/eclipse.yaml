@@ -13,5 +13,5 @@
 - name: Generate new inventory file for multipass_instances
   template:
     src: ./templates/eclipse.jinja2
-    dest: "/home/{{user}}/ThingsYouNeed/eclipse.init"
+    dest: "/home/{{user}}/ThingsYouNeed/eclipse.ini"
     mode: '0644'
