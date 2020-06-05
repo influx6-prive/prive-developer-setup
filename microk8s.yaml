@@ -42,3 +42,10 @@
     - debug:
         msg: "{{master_nodes}}"
       when: ansible_hostname == 'master'
+    - name: Request kubeconfig information from master
+      shell: "microk8s.config > ./kubeconfig"
+      when: ansible_hostname == 'master'
+    - name: Copy kubeconfig file into localhost for devs
+      fetch:
+        src: "./kubeconfig"
+        dest: "./kubeconfig"

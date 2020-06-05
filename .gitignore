@@ -281,3 +281,4 @@ cython_debug/
 
 ### Skip generated inventory
 multipass_vm_inventory.yaml
+kubeconfig
