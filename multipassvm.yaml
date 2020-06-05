@@ -1,10 +1,9 @@
 ---
 - hosts: all
   vars:
+    user: ubuntu
   tasks:
     - import_tasks: tasks/multipass_microk8s.yaml
-      vars:
-        user: ubuntu
     - name: Get state of master vm in multipass
       shell: "/snap/bin/multipass ls | grep master | wc -c"
       register: has_master_vm

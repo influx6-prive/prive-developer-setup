@@ -51,6 +51,8 @@ make sly inventory=inventory/localhost.yaml user=darkvoid
 make micro inventory=inventory/localhost.yaml user=darkvoid
 ```
 
+*You will see a directory called `ThingsYouNeed` in the user's home directory which contains different files you will need*
+
 ## VMs
 We will be using [Multipass](https://multipass.run/) to setup VMs for use in development, as it makes it 
 really easy to lunch them quickly. You can set up both multipass and the 3 VMs using these commands:
@@ -114,8 +116,11 @@ make micro inventory=./multipass_vm_inventory.yaml user=darkvoid
 
 Once done your vms should have all necessary software packages installed and ready for your use.
 
+*You will see a directory called `ThingsYouNeed` in the user's home directory which contains different files you will need*
+
 With this done, move on to [Setting up Eclipse](https://sites.google.com/privetechnologies.com/tech/tech/devops/virtualization/setup-of-developer-box?pli=1&authuser=1#h.p_6hQiR-j74Wy-)
 and [Configuring Eclipse](https://sites.google.com/a/wismore.com/privemanagers-developer-wiki/development/build-environment/eclipse).
+
 
 ## Others
 The other playbooks exists within the repository for specific needs which does not apply to all, 

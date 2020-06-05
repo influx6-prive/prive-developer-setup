@@ -24,6 +24,7 @@
       - python-pip
       - build-essential
       - snapd
+      - curl
       - x2goserver
       - x2goserver-xsession
       - x2goclient
@@ -46,9 +47,11 @@
 - name: Apt handle unattended-upgrades
   command: apt-get install -y unattended-upgrades
 - name: Add tomcat and docker group
-  command: "sudo groupadd {{item}}"
+  group:
+    state: present
+    name: "{{ item }}"
   loop:
     - tomcat
     - docker
 - name: Add user into sudo group
-  command: "sudo usermod -G -a sudo {{user}}"
+  command: "usermod -aG sudo {{user}}"

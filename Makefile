@@ -12,7 +12,7 @@ custom:
 	ansible-playbook --extra-vars "user=${user}" --verbose -i ${inventory} -u=${user} ${play}
 
 vm:
-	ansible-playbook --extra-vars "user=${user}" --verbose -i ${inventory} -u=${user} ./multipass-vm.yaml
+	ansible-playbook --extra-vars "user=${user}" --verbose -i ${inventory} -u=${user} ./multipassvm.yaml
 
 sly:
 	ansible-playbook --extra-vars "user=${user}" --verbose -i ${inventory} -u=${user} ./sly_aws.yaml

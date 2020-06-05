@@ -8,3 +8,10 @@
     state: present
     classic: yes
     name: emacs
+- name: Create directory for user config
+  command: "mkdir -p /home/{{user}}/ThingsYouNeed/"
+- name: Generate new inventory file for multipass_instances
+  template:
+    src: ./templates/eclipse.jinja2
+    dest: "/home/{{user}}/ThingsYouNeed/eclipse.init"
+    mode: '0644'
